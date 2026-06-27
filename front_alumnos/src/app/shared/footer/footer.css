@@ -1,0 +1,18 @@
+/* Estilo del fondo del Footer haciendo juego con el Header */
+.footer-elegant {
+  background-color: #0f172a; 
+}
+
+/* Estilo para los links del footer */
+.footer-link {
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #10b981 !important; /* Resalta en verde esmeralda al pasar el mouse */
+}
+
+.text-muted {
+  color: #94a3b8 !important;
+}

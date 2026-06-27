@@ -1,0 +1,18 @@
+/* Estructura para que el Footer siempre esté abajo aunque la pantalla no tenga contenido */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8fafc; /* Gris ultra-claro formal */
+}
+
+.content-wrapper {
+  flex: 1; /* Esto empuja el footer hacia abajo */
+}
+
+/* Estilo juvenil para las tarjetas que renderice el router-outlet */
+.card-custom {
+  border: none;
+  border-radius: 16px;
+  background-color: #ffffff;
+}

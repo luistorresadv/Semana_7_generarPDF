@@ -1,0 +1,114 @@
+<div class="container py-2">
+  <div class="d-flex align-items-center gap-2 mb-4 border-bottom pb-3">
+    <span class="fs-4">📝</span>
+    <h4 class="fw-bold mb-0 text-dark">Registrar Nuevo <span class="text-success" style="color: #10b981 !important;">Alumno</span></h4>
+  </div>
+
+  <form [formGroup]="frmAlumno" novalidate (ngSubmit)="grabar()">
+    <div class="row g-3">
+
+      <div class="col-md-6">
+        <label class="form-label fw-semibold text-secondary small text-uppercase tracking-wider">Cédula / Identificación</label>
+        <input type="text" class="form-control form-control-lg rounded-3 border-light-subtle shadow-sm fs-6" placeholder="Ej. 1725483920" formControlName="cedula">
+        
+        @if (frmAlumno.get('cedula')?.hasError('required') && frmAlumno.get('cedula')?.touched) {
+          <small class="text-danger d-block mt-1">La cédula es obligatoria.</small>
+        }
+        @if ((frmAlumno.get('cedula')?.hasError('minlength') || frmAlumno.get('cedula')?.hasError('maxlength')) && frmAlumno.get('cedula')?.touched) {
+          <small class="text-danger d-block mt-1">La cédula debe tener exactamente 10 dígitos.</small>
+        }
+        @if (frmAlumno.get('cedula')?.hasError('pattern') && frmAlumno.get('cedula')?.touched) {
+          <small class="text-danger d-block mt-1">La cédula solo debe contener números.</small>
+        }
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label fw-semibold text-secondary small text-uppercase tracking-wider">Correo Electrónico</label>
+        <input type="email" class="form-control form-control-lg rounded-3 border-light-subtle shadow-sm fs-6" placeholder="ejemplo@uniandes.edu.ec" formControlName="correo">
+        
+        @if (frmAlumno.get('correo')?.hasError('required') && frmAlumno.get('correo')?.touched) {
+          <small class="text-danger d-block mt-1">El correo es obligatorio.</small>
+        }
+        @if (frmAlumno.get('correo')?.hasError('email') && frmAlumno.get('correo')?.touched) {
+          <small class="text-danger d-block mt-1">Formato de correo no válido.</small>
+        }
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label fw-semibold text-secondary small text-uppercase tracking-wider">Nombres</label>
+        <input type="text" class="form-control form-control-lg rounded-3 border-light-subtle shadow-sm fs-6" placeholder="Ej. Luis Alejandro" formControlName="nombre">
+        
+        @if (frmAlumno.get('nombre')?.hasError('required') && frmAlumno.get('nombre')?.touched) {
+          <small class="text-danger d-block mt-1">El nombre es obligatorio.</small>
+        }
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label fw-semibold text-secondary small text-uppercase tracking-wider">Apellidos</label>
+        <input type="text" class="form-control form-control-lg rounded-3 border-light-subtle shadow-sm fs-6" placeholder="Ej. Torres Vaca" formControlName="apellido">
+        
+        @if (frmAlumno.get('apellido')?.hasError('required') && frmAlumno.get('apellido')?.touched) {
+          <small class="text-danger d-block mt-1">El apellido es obligatorio.</small>
+        }
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label fw-semibold text-secondary small text-uppercase tracking-wider">Teléfono de Contacto</label>
+        <input type="text" class="form-control form-control-lg rounded-3 border-light-subtle shadow-sm fs-6" placeholder="Ej. 0998765432" formControlName="telefono">
+        
+        @if (frmAlumno.get('telefono')?.hasError('required') && frmAlumno.get('telefono')?.touched) {
+          <small class="text-danger d-block mt-1">El teléfono es obligatorio.</small>
+        }
+      </div>
+
+      <div class="col-md-4">
+        <label class="form-label fw-semibold text-secondary small text-uppercase tracking-wider">Carrera</label>
+        <input type="text" class="form-control form-control-lg rounded-3 border-light-subtle shadow-sm fs-6" placeholder="Ej. Programación Web" formControlName="carrera">
+        
+        @if (frmAlumno.get('carrera')?.hasError('required') && frmAlumno.get('carrera')?.touched) {
+          <small class="text-danger d-block mt-1">La carrera es obligatoria.</small>
+        }
+      </div>
+
+      <div class="col-md-2">
+        <label class="form-label fw-semibold text-secondary small text-uppercase tracking-wider">Nivel</label>
+        <select class="form-select form-select-lg rounded-3 border-light-subtle shadow-sm fs-6" formControlName="nivel">
+          <option value="" disabled selected>Elegir...</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+        
+        @if (frmAlumno.get('nivel')?.hasError('required') && frmAlumno.get('nivel')?.touched) {
+          <small class="text-danger d-block mt-1">Requerido.</small>
+        }
+      </div>
+
+      <div class="col-12">
+        <label class="form-label fw-semibold text-secondary small text-uppercase tracking-wider">Fecha de Nacimiento <span class="text-muted fw-normal">(Opcional)</span></label>
+        <input type="date" class="form-control form-control-lg rounded-3 border-light-subtle shadow-sm fs-6" style="max-width: 250px;" formControlName="fecha_nacimiento">
+      </div>
+
+      <div class="col-12 d-flex justify-content-end gap-2 mt-4 pt-3 border-top">
+        <div class="col-12 d-flex justify-content-end gap-2 mt-4 pt-3 border-top">
+        <button type="button" (click)="cancelar()" class="btn btn-light rounded-pill px-4 fw-medium text-secondary">
+            Cancelar
+        </button>
+  
+        <button type="submit" class="btn btn-success rounded-pill px-4 fw-semibold text-white shadow-sm" style="background-color: #10b981; border: none;">
+            Guardar Alumno
+        </button>
+        </div>
+            
+    </div>
+
+    </div>
+  </form>
+</div>

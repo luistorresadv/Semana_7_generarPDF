@@ -1,0 +1,41 @@
+/* Color formal oscuro con tendencia juvenil (Azul Marino Profundo) */
+.bg-elegant {
+  background-color: #0f172a !important; 
+  backdrop-filter: blur(10px);
+}
+
+/* Detalle verde/neón juvenil para resaltar */
+.text-accent {
+  color: #10b981; 
+}
+
+/* Gradiente para el icono decorativo */
+.bg-gradient-gradient {
+  background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+}
+
+/* Estilo de los enlaces del menú */
+.navbar-dark .navbar-nav .nav-link {
+  color: #94a3b8;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Efecto Hover Juvenil */
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+  color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Botón llamativo */
+.btn-accent {
+  background-color: #10b981;
+  border: none;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-accent:hover {
+  background-color: #059669;
+  transform: translateY(-1px);
+}
